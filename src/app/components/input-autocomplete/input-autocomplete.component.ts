@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   HostListener,
+  Output,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
@@ -27,6 +29,8 @@ export class InputAutocompleteComponent {
   public companyName = new FormControl('');
   public list$!: Observable<CompanyInfo[]>;
 
+  @Output() changed = new EventEmitter<CompanyInfo>();
+
   @HostListener('document:click', ['$event'])
   clickOutComponent(event: { target: any }) {
     if (this.eRef.nativeElement.contains(event.target)) {
@@ -44,6 +48,7 @@ export class InputAutocompleteComponent {
 
   public selectCompany(company: CompanyInfo): void {
     this.companyName.setValue(company.name);
+    this.changed.emit(company);
     this.list$ = of([]);
     this.subscribeOnControl();
   }

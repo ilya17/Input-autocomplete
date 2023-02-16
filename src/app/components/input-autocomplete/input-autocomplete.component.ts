@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   HostListener,
-  OnInit,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
@@ -14,7 +13,6 @@ import {
   map,
   of,
   switchMap,
-  tap,
 } from 'rxjs';
 import { CompanyListService } from 'src/app/core/services/company-list.service';
 import { CompanyInfo } from 'src/app/core/services/interfaces';
@@ -30,8 +28,9 @@ export class InputAutocompleteComponent {
   public list$!: Observable<CompanyInfo[]>;
 
   @HostListener('document:click', ['$event'])
-  clickout(event: { target: any }) {
+  clickOutComponent(event: { target: any }) {
     if (this.eRef.nativeElement.contains(event.target)) {
+      this.list$ = of([]);
       this.subscribeOnControl();
     }
   }
@@ -45,15 +44,14 @@ export class InputAutocompleteComponent {
 
   public selectCompany(company: CompanyInfo): void {
     this.companyName.setValue(company.name);
+    this.list$ = of([]);
     this.subscribeOnControl();
   }
 
   private subscribeOnControl(): void {
-    this.list$ = of([]);
     this.list$ = this.companyName.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      tap((res) => console.log(res)),
       filter((res) => res !== null),
       map((res) => res!),
       switchMap((res) =>

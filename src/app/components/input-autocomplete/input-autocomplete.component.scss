@@ -1,0 +1,31 @@
+.autocomplete {
+  width: 332px;
+  &__input {
+    width: 332px;
+    padding: 6px 14px 11px;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    border-radius: 4px 4px 4px 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &__list {
+    position: relative;
+    top: -3px;
+    max-height: 240px;
+    overflow: scroll;
+    padding: 20px 17px 24px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  &__list--null {
+    padding: 0;
+    border: none;
+  }
+}

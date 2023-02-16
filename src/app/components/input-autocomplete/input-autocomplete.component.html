@@ -1,0 +1,16 @@
+<div class="autocomplete">
+  <input class="autocomplete__input" type="text" [formControl]="companyName" />
+  <div
+    *ngIf="list$ | async as list"
+    class="autocomplete__list"
+    [ngClass]="{
+      'autocomplete__list--null': list.length === 0
+    }"
+  >
+    <app-autocomplete-item
+      (selectedCompany)="selectCompany($event)"
+      *ngFor="let item of list"
+      [company]="item"
+    ></app-autocomplete-item>
+  </div>
+</div>

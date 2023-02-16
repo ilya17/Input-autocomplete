@@ -1,27 +1,11 @@
-# AutocompleteTest
+## Требования к тестовому заданию
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+Необходимо разработать поле ввода компании с автокомплитом. В поле ввода пользователь может вводить как название компании, так и url сайта компании. Компонент должен обратиться в API за подсказками и показать возможные варианты.
 
-## Development server
+Макет: https://www.figma.com/file/hd1bno9RSLrYT7bvEvlbFx/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=0%3A1
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+После выбора компании в autocomplete, ее название должно быть вставлено в значение поля.
 
-## Code scaffolding
+В качестве Autocomplete API необходимо использовать https://clearbit.com/docs#logo-api
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Результат выполнения задания нужно поместить в github репозиторий.

@@ -1,0 +1,9 @@
+<div class="autocomplete" (click)="companySelect()">
+  <div class="autocomplete__logo">
+    <img [src]="company?.logo" alt="logo" />
+  </div>
+  <div class="autocomplete__info">
+    <span>{{ company?.name }}</span>
+    <span>{{ company?.domain }}</span>
+  </div>
+</div>

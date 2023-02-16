@@ -1,5 +1,14 @@
 <div class="autocomplete">
-  <input class="autocomplete__input" type="text" [formControl]="companyName" />
+  <input
+    #input
+    [type]="inputType"
+    [readOnly]="edit"
+    [tabindex]="tabIndex"
+    [placeholder]="placeholder"
+    class="autocomplete__input"
+    type="text"
+    [formControl]="companyName"
+  />
   <div
     *ngIf="list$ | async as list"
     class="autocomplete__list"
